@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @if (Request.IsAuthenticated)
+        {
+            <text>
+                <ul>
+                    <li class="navbar-text">
+                        Hello, @User.Identity.Name!
+                    </li>
+                    <li>
+                        @Html.ActionLink("Sign out", "SignOut", "Account")
+                    </li>
+                </ul>
+            </text>
+        }
+        else
+        {
+            <ul>
+                <li>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        }
+    </div>
+</body>
+</html>
